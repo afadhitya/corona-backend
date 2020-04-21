@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
 	router := mux.NewRouter()
 
 	router.HandleFunc("/corona/all-country", getAllCountryData).Methods("GET")
@@ -19,5 +22,5 @@ func main() {
 
 	http.Handle("/", router)
 	fmt.Println("Connected to port 1234")
-	log.Fatal(http.ListenAndServe(":1234", router))
+	log.Fatal(http.ListenAndServe(":"+port, router))
 }
