@@ -11,10 +11,6 @@ import (
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/getproducts", returnAllUsers).Methods("GET")
-	router.HandleFunc("/users", insertUsersMultipart).Methods("POST")
-	router.HandleFunc("/users", updateUserMultipart).Methods("PUT")
-	router.HandleFunc("/users", deleteUserData).Methods("DELETE")
 
 	router.HandleFunc("/corona/all-country", getAllCountryData).Methods("GET")
 	router.HandleFunc("/corona/by-country/{countryCode}", getByCountry).Methods("GET")
